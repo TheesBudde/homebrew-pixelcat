@@ -12,14 +12,13 @@ cask "pixelcat" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "Pixelcat.app"
 
   # Pixelcat is signed ad hoc, not notarized: without this, macOS refuses to open it on first launch.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Pixelcat.app"]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Pixelcat.app"]
   end
 
   uninstall quit: "local.pixelkatze"
