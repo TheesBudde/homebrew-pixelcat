@@ -1,6 +1,6 @@
 cask "pixelcat" do
-  version "6.0.1"
-  sha256 "61ab0b7b31622ee9794a969b674edb6345caec1f3a6499dd0cd62b9e35dd84ee"
+  version "6.1"
+  sha256 "8b676ad625f60d0b9ad931f877550eec4d6693fc947facbb49f42c5ae34985cb"
 
   url "https://github.com/TheesBudde/pixelcat/releases/download/v#{version}/Pixelcat-v#{version}.zip"
   name "Pixelcat"
