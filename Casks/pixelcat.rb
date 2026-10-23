@@ -1,6 +1,6 @@
 cask "pixelcat" do
-  version "6.1"
-  sha256 "8b676ad625f60d0b9ad931f877550eec4d6693fc947facbb49f42c5ae34985cb"
+  version "6.2"
+  sha256 "221613b7e98f00f9b6f80a772022b5cb1cb8c2f8af0c05cf2a68e1b0d20aa527"
 
   url "https://github.com/TheesBudde/pixelcat/releases/download/v#{version}/Pixelcat-v#{version}.zip"
   name "Pixelcat"
@@ -23,11 +23,14 @@ cask "pixelcat" do
 
   uninstall quit: "local.pixelkatze"
 
-  zap trash: "~/Library/Preferences/local.pixelkatze.plist"
+  zap trash: [
+    "~/Library/Application Support/Pixelcat",
+    "~/Library/Preferences/local.pixelkatze.plist",
+  ]
 
   caveats <<~EOS
     Pixelcat is not notarized by Apple. This cask removes the quarantine flag so it opens normally.
-    If you enable "Cat bed in the Dock", macOS may ask for Accessibility access – it is optional
+    If you enable "Cat bed in the Dock", macOS may ask for Accessibility access. It is optional
     and has to be granted again after each update.
   EOS
 end
